@@ -62,14 +62,13 @@ const Appearance = () => {
                     }}
                 >
                 {/* Dynamically load the logo based on the current theme */}
-                <img
+                {/* <img
                     src={theme === 'light' ? logoDark : logoLight}
                     alt="Logo"
                     style={{ width: '25px' }}
-                />
+                /> */}
                 </button>
             </div>
-            
             
         </div>
  
