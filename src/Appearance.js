@@ -41,7 +41,7 @@ const Appearance = () => {
     return (
         <div className="transparent-box">
             <div className="header-container" >
-                <h1>WELCOME TO YOUR PERSONAL STYLIST</h1>
+                <h1>Welcome To Your Personal Stylist</h1>
                 <div className="menu-wrapper">
                         {/* {isOpen && ( */}
                             <ul className="horizontal-menu">
