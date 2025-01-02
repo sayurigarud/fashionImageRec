@@ -7,6 +7,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 // import Girl_frontend from './assets/Girl_frontend'
 import MyModel from './MyModel';
+import Calendar from './Calendar';
 
 function App() {
   return (
@@ -21,12 +22,15 @@ function App() {
         <directionalLight position={[5, 5, 5]} />
 
         {/* Render the 3D model */}
-        <MyModel scale={1.5} position={[0, 0, 0]} rotation={[0, Math.PI / 4, 0]} />
+        <MyModel scale={1.5} position={[0, 4, 0]} rotation={[0, Math.PI / 4, 0]} />
 
         {/* Orbit Controls */}
         <OrbitControls enableZoom={false} />
       </Canvas>
+
+      <Calendar/>
     </div>
+
     </div>
   );
 }

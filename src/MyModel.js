@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 
-export default function MyModel({ scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
+export default function MyModel({ scale = 1.5, position = [10, 0, 10], rotation = [0, 0, 0] }) {
   // Load the GLB model
  
   const { scene } = useGLTF('/assets/girl_updated.glb'); // Update the path to your model file
@@ -26,7 +26,7 @@ export default function MyModel({ scale = 1, position = [0, 0, 0], rotation = [0
     <primitive
         object={scene}
         scale={[0.85, 0.85, 0.85]} // Adjust scale as needed
-        position={[0, -1.5, 0]}    // Center the model
+        position={[0, 0, 0]}    // Center the model
         rotation={rotation}
     />
     </mesh>

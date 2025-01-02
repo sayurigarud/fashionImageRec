@@ -8,6 +8,20 @@ const Appearance = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
+    const [hoveredButton, setHoveredButton] = useState(null);
+    const [clickedButton, setClickedButton] = useState(null);
+
+    const handleMouseEnter = (buttonId) => {
+        setHoveredButton(buttonId);
+    };
+    
+    const handleMouseLeave = () => {
+        setHoveredButton(null);
+    };
+    
+    const handleClick = (buttonId) => {
+        setClickedButton(buttonId);
+    };
 
     useEffect(() => {
         // Apply the current theme to the body
@@ -15,6 +29,7 @@ const Appearance = () => {
         // Store the selected theme in localStorage
         localStorage.setItem('theme', theme);
     }, [theme]);
+
 
     const toggleTheme = () => {
         // Toggle between light and dark
@@ -39,7 +54,8 @@ const Appearance = () => {
     
 
     return (
-        <div className="transparent-box">
+        <div>
+            <div className="transparent-box">
             <div className="header-container" >
                 <h1>Welcome To Your Personal Stylist</h1>
                 <div className="menu-wrapper">
@@ -52,25 +68,39 @@ const Appearance = () => {
                         {/* ) */}
                         {/* } */}
                 </div>
-                <button
-                    onClick={toggleTheme}
-                    style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 10,
-                    cursor: 'pointer',
-                    }}
-                >
-                {/* Dynamically load the logo based on the current theme */}
-                {/* <img
-                    src={theme === 'light' ? logoDark : logoLight}
-                    alt="Logo"
-                    style={{ width: '25px' }}
-                /> */}
-                </button>
             </div>
-            
         </div>
+            <h2>
+                <div className="button-container">
+
+
+                <button id="button1"
+                className={`pop-text ${
+                hoveredButton === "button1" ? "hover" : ""
+                } ${clickedButton === "button1" ? "click" : ""}`}
+                onMouseEnter={() => handleMouseEnter("button1")}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleClick("button1")}
+                >
+                <li>Fits Wrapped</li>
+                </button>
+                
+                <button id="button2"
+                className={`pop-text ${
+                hoveredButton === "button2" ? "hover" : ""
+                } ${clickedButton === "button2" ? "click" : ""}`}
+                onMouseEnter={() => handleMouseEnter("button2")}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleClick("button2")}
+                >
+                <li>Style Your Day</li>
+                </button>
+
+
+                </div> 
+            </h2>
+        </div>
+        
  
     );
 

@@ -16,15 +16,41 @@ body {
   background-position: center; /* Centers the image */
 }
 h1 {
-
-  font-size: 100px !important; /* Adjust font size */
-  color: #333; /* Set text color */
+  font-size: 80px !important; /* Adjust font size */
+  color: #ffffff; /* Set text color */
   /* max-width: 500px;  */
   font-family: "Lavishly Yours", serif;
   font-weight: 400;
   font-style: normal;
   text-align: left; /* Center-align the heading */
   margin: 20px 0; /* Add some margin */
+}
+
+
+ h2{
+  font-size: 40px !important; /* Adjust font size */
+  color: #ffffff; /* Set text color */
+  max-width: 500px; 
+  font-family: "Lavishly Yours", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left; /* Center-align the heading */
+}
+
+.vertical-menu{
+  position: relative; /* Ensure positioning can be adjusted */
+  margin-top: -20px; /* Adjust this value to move it closer */
+  text-align: left; /* Center-align the heading */
+  color: #eeeeee;
+  margin: -20px 50px; 
+  /* border-radius: 10px; */
+}
+
+.vertical-menu li{
+  color: #ffffff;
+}
+.vertical-menu ul{
+  color: #ffffff;
 }
 
 code {
@@ -70,34 +96,7 @@ body.dark {
 }
 
 /* You can also style other elements specifically for dark or light mode */
-body.light h1 {
-  color: black;
-}
-
-body.dark h1 {
-  color: white;
-}
-
 /* Buttons or other elements can also be styled */
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Light mode button style */
-body.light button {
-  background-color: #f0f0f0;
-  color: black;
-}
-
-/* Dark mode button style */
-body.dark button {
-  background-color: #333;
-  color: white;
-}
-
 
 
 /* Menu section title */
@@ -105,13 +104,14 @@ body.dark button {
   font-weight: bold;
   margin-top: 10px;
   padding: 5px 0;
-  font-size: 14px;
+  font-size: 20px;
   color: #bf1111;
   border-bottom: 1px solid #ddd;
 }
 
 .horizontal-menu {
   display: flex; /* Align items horizontally */
+  align-items: right;
   list-style: none;
   padding: 0;
   margin: 10px 0 0 0;
@@ -122,10 +122,13 @@ body.dark button {
 }
 
 .horizontal-menu li {
+  font-size: 30px;
   padding: 10px 20px;
   cursor: pointer;
   border-right: 1px solid #ddd; /* Add divider between menu items */
   transition: background-color 0.2s;
+  align-items: center;
+  
 }
 
 .horizontal-menu li:last-child {
@@ -134,4 +137,130 @@ body.dark button {
 
 .horizontal-menu li:hover {
   background-color: #f0f0f071;
+}
+
+/*
+Calndar format
+*/
+
+/* Calendar Container */
+.calendar-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header button {
+  background-color: #007bff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background-color: #0056b3;
+}
+
+.calendar-header h2 {
+  color:#0c0c0c;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+/* Day Header */
+.calendar-day-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+/* Calendar Day */
+.calendar-day {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  position: relative;
+}
+
+.calendar-day:hover {
+  background-color: #007bff;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  border: none;
+}
+
+/* Text Inside Days */
+.calendar-day span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.calendar-container {
+  border: 2px dashed red; /* Debugging border */
+  min-width: 300px; /* Ensure sufficient space */
+}
+
+.calendar-day-header {
+  background-color: #f8f9fa;
+  color: rgb(0, 0, 0); /* Ensure text is visible */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.button-container {
+  margin: -20px 50px; 
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 5px; /* Space between buttons */
+}
+
+.pop-text {
+  all: unset;
+  font-family: "Lavishly Yours", serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  position: relative;
+  z-index: 10;
+  display: block; /* Makes buttons stack naturally */
+  margin-bottom: 10px; /* Space between buttons */
+  transition: transform 0.2s ease-in-out;
+
+}
+.pop-text.hover {
+  transform: scale(1.2); /* Slight pop on hover */
+}
+
+.pop-text.click {
+  transform: scale(1.2); /* Bigger pop on click */
 }
