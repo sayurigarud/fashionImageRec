@@ -1,23 +1,49 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import WeatherComponent from './WeatherComponent'; // Import the WeatherComponent
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+// import WeatherComponent from './WeatherComponent'; // Import the WeatherComponent
 import Home from './Home';
-import { useState, Suspense } from 'react';
+import { useState, useEffect} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 // import Girl_frontend from './assets/Girl_frontend'
 import MyModel from './MyModel';
 import Calendar from './Calendar';
-import { RGBAFormat } from 'three';
-
 
 
 function App () {
 
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState(null);
+
   const [hoveredButton, setHoveredButton] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false); // New state variable
+
+  useEffect(() => {
+    // Fetch data from the backend
+    fetch('http://localhost:5000/api/data')
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const sendData = async () => {
+    const dataToSend = { name: 'Sayuri', age: 23 };
+    try {
+      const res = await fetch('http://localhost:5000/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataToSend),
+      });
+      const result = await res.json();
+      setResponse(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
 
   const handleMouseEnter = (buttonId) => {
       setHoveredButton(buttonId);
@@ -36,7 +62,13 @@ function App () {
 
   return (
     <Router>
+      
     <div className="App">
+    <div>
+      <h1>{message}</h1>
+      <button onClick={sendData}>Send Data</button>
+      {response && <p>Server Response: {JSON.stringify(response)}</p>}
+    </div>
         {showCalendar ? ( // Conditionally render the calendar or home screen
           <Calendar />
         ) : (

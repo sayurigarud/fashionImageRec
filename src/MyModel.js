@@ -1,9 +1,9 @@
 import React, {useRef} from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 
-export default function MyModel({ scale = 1.0, position = [, -40, 50], rotation = [0, 0, 0] }) {
+export default function MyModel({ scale = 1.0, position = [0, -40, 50], rotation = [0, 0, 0] }) {
   // Load the GLB model
  
   const { scene } = useGLTF('/assets/girl_updated.glb'); // Update the path to your model file

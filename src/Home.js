@@ -1,21 +1,19 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-import Calendar from './Calendar';
 
 
 const Home = () => {
      // Check if a theme is saved in localStorage, otherwise default to light
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
  
 
-    useEffect(() => {
-        // Apply the current theme to the body
-        document.body.className = theme;
-        // Store the selected theme in localStorage
-        localStorage.setItem('theme', theme);
-    }, [theme]);
+    // useEffect(() => {
+    //     // Apply the current theme to the body
+    //     document.body.className = theme;
+    //     // Store the selected theme in localStorage
+    //     localStorage.setItem('theme', theme);
+    // }, [theme]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
