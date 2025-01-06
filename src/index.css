@@ -5,23 +5,23 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
   font-family: "Lavishly Yours", serif;
-  font-weight: 400;
+  font-weight: 1000;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./background_image.jpg');
-  /* background: rgba(255, 255, 255, 0.223);  */
+  /* background-image: url('./background_image.jpg'); */
+  background: rgba(195, 176, 145, 0.653); /* 195,176,145
   backdrop-filter: blur(10px);
   background-size: cover; /* Ensures the background covers the entire area */
   background-position: center; /* Centers the image */
 }
 h1 {
   font-size: 80px !important; /* Adjust font size */
-  color: #ffffff; /* Set text color */
+  color: rgb(165, 13, 13); /* Set text color  29, 19, 49 */ 
   /* max-width: 500px;  */
   font-family: "Lavishly Yours", serif;
   font-weight: 400;
-  font-style: normal;
+  font-style: bold;
   text-align: left; /* Center-align the heading */
   margin: 20px 0; /* Add some margin */
 }
@@ -29,7 +29,7 @@ h1 {
 
  h2{
   font-size: 40px !important; /* Adjust font size */
-  color: #ffffff; /* Set text color */
+  color: rgb(165, 13, 13); /* Set text color */
   max-width: 500px; 
   font-family: "Lavishly Yours", serif;
   font-weight: 400;
@@ -41,30 +41,25 @@ h1 {
   position: relative; /* Ensure positioning can be adjusted */
   margin-top: -20px; /* Adjust this value to move it closer */
   text-align: left; /* Center-align the heading */
-  color: #eeeeee;
+  color: rgb(165, 13, 13);
   margin: -20px 50px; 
   /* border-radius: 10px; */
 }
 
 .vertical-menu li{
-  color: #ffffff;
+  color: rgb(165, 13, 13);
 }
+
 .vertical-menu ul{
-  color: #ffffff;
+  color: rgb(165, 13, 13);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.transparent-box {
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-  padding: 20px;
-  border-radius: 10px;
-  /* max-width: 1000px; Optional: to control the width of the box */
-  text-align: center;
-  color: #fff; /* White text for contrast */
-}
+
+
 
 .header-container {
   position: relative; /* To ensure the menu can be positioned relative to this container */
@@ -73,27 +68,17 @@ code {
 
 .header-container h1 {
   font-size: 3rem;
-  color: white; /* Adjust based on your design */
+  font-weight: 400;
+  font-style: bold;
+  color: rgb(165, 13, 13);
   margin: 0; /* Remove default margin */
 }
 .menu-wrapper {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 50px;
 }
 
-
-/* Default (Light Mode) */
-body.light {
-  /* background-color: white; */
-  color: black;
-}
-
-/* Dark Mode */
-body.dark {
-  /* background-color: black; */
-  color: white;
-}
 
 /* You can also style other elements specifically for dark or light mode */
 /* Buttons or other elements can also be styled */
@@ -114,18 +99,19 @@ body.dark {
   align-items: right;
   list-style: none;
   padding: 0;
-  margin: 10px 0 0 0;
-  background-color: rgba(255, 255, 255, 0.305);
-  border: 1px solid #0c0c0c;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 30px 0 0;
+  /* background-color: rgba(255, 255, 255, 0.305); */
+  /* border: 0.7px solid#bf1111; */
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
   right: 1px;
 }
 
 .horizontal-menu li {
+  color: rgb(165, 13, 13); /* Set text color */
   font-size: 30px;
   padding: 10px 20px;
   cursor: pointer;
-  border-right: 1px solid #ddd; /* Add divider between menu items */
+  border-right: 2px solid #bf1111; /* Add divider between menu items */
   transition: background-color 0.2s;
   align-items: center;
   
@@ -140,22 +126,41 @@ body.dark {
 }
 
 /*
-Calndar format
+Calendar format
 */
 
-/* Calendar Container */
-.calendar-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Wrapper for centering */
+.calendar-wrapper {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  height: 100vh;          /* Full height of the viewport */
+  /* background-color: red;  Red background */
+  padding: 20px;          /* Add padding if needed */
+  box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
+
+/* Calendar styling */
+.calendar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+  background-color: #e8e0d7; /* Beige background */
+  padding: 20px;
+  border-radius: 10px;
+  width:50%;
+  height:70%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
 
 /* Calendar Header */
 .calendar-header {
+  font-size: 40px;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,29 +168,32 @@ Calndar format
 }
 
 .calendar-header button {
-  background-color: #007bff;
+  background-color: #debedc;
   color: rgb(0, 0, 0);
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 .calendar-header button:hover {
-  background-color: #0056b3;
+  background-color: #debedc;
 }
 
 .calendar-header h2 {
-  color:#0c0c0c;
-  font-size: 1.5rem;
+  color:#000000;
+  font-size: 40;
   margin: 0;
+  padding: 0px 10px;
 }
 
 /* Calendar Grid */
 .calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  position:relative;
+  display: grid; 
+  grid-template-columns: repeat(7, 5fr);
   gap: 5px;
+
 }
 
 /* Day Header */
@@ -198,17 +206,20 @@ Calndar format
 }
 
 /* Calendar Day */
+
 .calendar-day {
-  text-align: center;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 2rem;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #f1f1f1;
-  position: relative;
 }
 
 .calendar-day:hover {
-  background-color: #007bff;
+  background-color: #debedc;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
@@ -220,23 +231,32 @@ Calndar format
 
 /* Text Inside Days */
 .calendar-day span {
+  /* position: absolute; */
+  top: 30px; /* Distance from the top */
+  left: 5px; /* Distance from the left */
   font-size: 1rem;
   font-weight: bold;
 }
 .calendar-container {
-  border: 2px dashed red; /* Debugging border */
-  min-width: 300px; /* Ensure sufficient space */
+  /* border: 2px dashed red; Debugging border */
+  min-width: 100%; /* Ensure sufficient space */
 }
 
 .calendar-day-header {
+  text-align: center;
   background-color: #f8f9fa;
-  color: rgb(0, 0, 0); /* Ensure text is visible */
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: normal;
 }
 
 .button-container {
-  margin: -20px 50px; 
+  font-size: 40px !important; /* Adjust font size */
+  max-width: 500px; 
+  font-family: "Lavishly Yours", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left; /* Center-align the heading */
+  margin: 0px 50px; 
   display: flex;
   flex-direction: column; /* Stack buttons vertically */
   gap: 5px; /* Space between buttons */
@@ -248,10 +268,10 @@ Calndar format
   font-weight: 400;
   font-style: normal;
   cursor: pointer;
-  color: rgb(255, 255, 255);
-  padding: 10px 20px;
+  color: rgb(165, 13, 13); /* Set text color */
+  /* padding: 10px 0px; */
   position: relative;
-  z-index: 10;
+  /* z-index: 10; */
   display: block; /* Makes buttons stack naturally */
   margin-bottom: 10px; /* Space between buttons */
   transition: transform 0.2s ease-in-out;
@@ -263,4 +283,7 @@ Calndar format
 
 .pop-text.click {
   transform: scale(1.2); /* Bigger pop on click */
+}
+a {
+  text-decoration: none;
 }

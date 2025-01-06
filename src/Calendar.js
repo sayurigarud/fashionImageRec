@@ -51,7 +51,8 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar-container">
+    <div className="calendar-wrapper">
+      <div className ="calendar">
       <div className="calendar-header">
         <button onClick={handlePrevMonth}>&lt;</button>
         <h2>
@@ -71,6 +72,8 @@ const Calendar = () => {
         {renderDays()}
       </div>
     </div>
+    </div>
+    
   );
 };
 
